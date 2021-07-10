@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-center">
+  <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Wybierz produkt z listy</button>
+</div>
+<p class="mt-5" *ngIf="selectedProducts.length>0">Wybrane przez Ciebie produkty:</p>
+<div class="card w-100 mt-3" *ngFor="let selectedProduct of selectedProducts">
+  <div class="card-body">
+    <h5 class="card-title">{{selectedProduct.name}}</h5>
+    <p class="card-text">Ilość: {{selectedProduct.capacity}} g</p>
+    <p class="card-text">Kalorie: {{selectedProduct.calories * (selectedProduct.capacity/100)}} kcal</p>
+    <p class="card-text">Białka: {{selectedProduct.proteins * (selectedProduct.capacity/100)}} g</p>
+    <p class="card-text">Węglowodany: {{selectedProduct.carbohydrates * (selectedProduct.capacity/100)}} g</p>
+    <p class="card-text">tłuszcze: {{selectedProduct.fats * (selectedProduct.capacity/100)}} g</p>
+    <a type="button" class="btn btn-outline-danger" (click)="deleteProduct(selectedProduct)">Usuń</a>
+  </div>
+</div>
+<div class="card text-white bg-dark mb-3 mt-5" style="max-width: 18rem;">
+  <div class="card-header">Wynik</div>
+  <div class="card-body">
+    <h5 class="card-title">Twój posiłek zawiera obecnie: {{result.calories}} kcal</h5>
+    <h5 class="card-title">Białka: {{result.proteins}} g</h5>
+    <h5 class="card-title">Węglowodany: {{result.carbohydrates}} g</h5>
+    <h5 class="card-title">Tłuszcze: {{result.fats}} g</h5>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Lista produktów</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" aria-hidden="true"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card w-100" *ngFor="let product of products">
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">KALORIE: {{product.calories}} kcal</p>
+            <p class="card-text">BIAŁKA: {{product.proteins}}/100g  WĘGLOWODANY: {{product.carbohydrates}}/100g  TŁUSZCZE: {{product.fats}}/100g</p>
+            <a type="button" class="btn btn-primary" data-bs-target="#exampleModal2" data-bs-toggle="modal" data-bs-dismiss="modal"
+               (click)="selectProduct(product)">Wybierz</a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Dalej</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">Podaj ilość</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" aria-hidden="true"></button>
+      </div>
+      <div class="modal-body">
+        <h5>Wybrany produkt to: </h5>
+        <h3 *ngIf="product != null">{{product.name}}</h3>
+        <div class="input-group">
+          <input id="capacity" class="form-control" placeholder="Ilość produktu w gramach" [(ngModel)]="capacity">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addProduct()">Dodaj</button>
+        </div>
+      </div>
+    </div>
+  </div>

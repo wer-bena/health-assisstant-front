@@ -6,16 +6,20 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 import { CreateProductComponent } from './component/create-product/create-product.component';
 import {FormsModule} from '@angular/forms';
+import { CaloricCalculationComponent } from './component/caloric-calculation/caloric-calculation.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    CaloricCalculationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],
