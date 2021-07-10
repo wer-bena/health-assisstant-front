@@ -8,13 +8,15 @@ import { CreateProductComponent } from './component/create-product/create-produc
 import {FormsModule} from '@angular/forms';
 import { CaloricCalculationComponent } from './component/caloric-calculation/caloric-calculation.component';
 import {HttpClientModule} from '@angular/common/http';
+import { PersonalResultsComponent } from './component/personal-results/personal-results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CreateProductComponent,
-    CaloricCalculationComponent
+    CaloricCalculationComponent,
+    PersonalResultsComponent
   ],
   imports: [
     BrowserModule,
