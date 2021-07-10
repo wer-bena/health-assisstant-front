@@ -1,0 +1,28 @@
+<div class="card border-primary mb-3" style="max-width: 20rem;">
+  <h5 class="card-header">Dodawanie produktu do bazy danych</h5>
+  <div class="card-body text-primary">
+    <div class="input-group text-primary">
+      <input id="productName" class="form-control" placeholder="Nazwa produktu" [(ngModel)]="name">
+    </div>
+    <br>
+    <div class="input-group">
+      <input id="calories" class="form-control" placeholder="Liczba kalorii na 100 gram" [(ngModel)]="calories">
+    </div>
+    <br>
+    <div class="input-group">
+      <input id="proteins" class="form-control" placeholder="Ilość białka na 100 gram" [(ngModel)]="proteins">
+    </div>
+    <br>
+    <div class="input-group">
+      <input id="carbohydrates" class="form-control" placeholder="Ilość węglowodanów na 100 gram" [(ngModel)]="carbohydrates">
+    </div>
+    <br>
+    <div class="input-group">
+      <input id="fats" class="form-control" placeholder="Ilość tłuszczy na 100 gram" [(ngModel)]="fats">
+    </div>
+    <br>
+    <div class="d-flex justify-content-center">
+      <button type="button" class="btn btn-outline-primary" (click)="createProduct()">Dodaj produkt</button>
+    </div>
+  </div>
+</div>
