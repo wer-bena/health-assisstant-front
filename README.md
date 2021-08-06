@@ -1,5 +1,9 @@
 # HealthFront
 
+# To find the whole funtcionality of the app, please see also https://github.com/wer-bena/health-assisstant-app.
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
 
 ## Development server
